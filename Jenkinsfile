@@ -1,29 +1,25 @@
 pipeline {
-    agent any
+    agent { label 'docker-agent' }  // Pastikan agent node kamu ada label ini di Jenkins UI
 
     stages {
         stage('Checkout') {
             steps {
-                echo 'Checkout...'
+                checkout scm
             }
         }
 
         stage('Build') {
             steps {
-                echo 'Building project...'
+                echo "Running build on docker-agent node"
+                sh 'docker --version'  // contoh akses docker di agent
+                sh 'echo Hello from Jenkins Agent!'
             }
         }
 
         stage('Test') {
             steps {
-               
-                echo 'Running tests...'
-            }
-        }
-
-        stage('Deploy') {
-            steps {
-                echo 'Deploying...'
+                sh 'echo Running tests...'
+                // Tambahkan script test kamu di sini
             }
         }
     }
