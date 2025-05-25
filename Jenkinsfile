@@ -18,8 +18,7 @@ pipeline {
 
         stage('List Of Process') {
             steps {
-                echo "See Process"
-                sh 'docker ps -a'  // contoh akses docker di agent
+
                 sh 'echo Hello from Jenkins Agent!'
             }
         }
