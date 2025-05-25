@@ -16,6 +16,7 @@ pipeline {
 
         stage('Test') {
             steps {
+                sh 'docker ps'
                 echo 'Running tests...'
             }
         }
