@@ -10,8 +10,6 @@ pipeline {
 
         stage('Build') {
             steps {
-                echo "Running build on docker-agent node"
-                sh 'docker --version'  // contoh akses docker di agent
                 sh 'echo Hello from Jenkins Agent!'
             }
         }
